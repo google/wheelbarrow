@@ -1,0 +1,5 @@
+analysis_name: "check_sensitive_file_access"
+result_name: "name_resolution_file_access"
+path: "/etc/resolv.conf|/etc/hosts|/etc/nsswitch.conf"
+result_type: ADD
+score: 5

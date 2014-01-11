@@ -1,0 +1,89 @@
+# These instructions are for Ubuntu
+
+______________________________________________________________________________
+
+Setup host:
+Install NFS server:
+sudo apt-get install nfs-kernel-server
+
+Add the following line to /etc/exports:
+<share path> <host address>(rw,no_root_squash,async,insecure)
+
+For example, if you are foo and your host name is bar, the line could be:
+/home/foo/myshare bar.domain.com(rw,no_root_squash,async,insecure)
+
+Run the following:
+sudo service nfs-kernel-server restart
+sudo exportfs -a
+
+Extract the codebase to the nfs share (/home/foo/myshre) in this case
+set the environment variable WHEELBARROW_HOME to point to this
+
+
+______________________________________________________________________________
+
+Guest setup
+Download the Ubuntu installation image from http://www.ubuntu.com.
+
+Install QEMU and create a QCOW2 disk image:
+sudo apt-get install qemu
+qemu-img create -f qcow2 ubuntu.qcow2 6G
+
+Start QEMU using the Ubuntu installation image and install Ubuntu:
+qemu-system-x86_64 -hda ubuntu.qcow2 -m 4096 -cdrom <path to installation image>
+
+The installation process will ask to restart. After restarting, the guest 
+setup process can start.
+
+Boot to command line by default:
+sudo vi /etc/default/grub
+
+Add text to the line that starts with GRUB_CMDLINE_LINUX_DEFAULT. It should now read:
+GRUB_CMDLINE_LINUX_DEFAULT=”quiet splash text”
+
+Update the Grub boot menu configuration:
+sudo update-grub
+
+Set up python modules gflags, protobufs & python bindings and pyinotify for it:
+sudo apt-get install python-gflags python-protobuf protobuf-compiler python-pyinotify
+
+Set up NFS:
+sudo apt-get install nfs-common
+mkdir /mnt/broker
+Add the following line to /etc/fstab:
+<host address>:<share path> /mnt/broker nfs rw,nosuid,rsize=8192,wsize=8192,intr,tcp  0 0
+
+Update currently installed packages:
+sudo apt-get update
+sudo apt-get dist-upgrade
+sudo reboot
+# Restart again
+
+Mount the NFS share:
+sudo mount -a
+
+Copy the Upstart configuration file to /etc/init and power off the VM:
+sudo cp /mnt/broker/broker_nfs.conf /etc/init
+sudo poweroff
+
+______________________________________________________________________________
+Starting Analyses
+On the host, create a batch package descriptor. It is a text file describing 
+a set of package that should be analyzed. 
+For example, it can contain the following:
+name_regex: “^ftp.*”
+architecture: “amd64”
+max_count: “500”
+
+This corresponds to at most 500 packages whose name starts with “ftp” and
+ whose architecture is amd64.
+
+Then you can launch the analyses:
+cd <exported filesystem directory>
+host/analysis_launcher.py --batchfile /home/foo/share/wb/bpdesc.txt --image /home/foo/share/qemu/vanilla.qcow2 -m 4096 -g /mnt/broker -a -h /home/foo/share/ -t 1200 --textout --snapshot
+
+
+
+______________________________________________________________________________
+
+

@@ -1,0 +1,5 @@
+analysis_name: "check_sensitive_file_access"
+result_name: "kerberos_file_access"
+path: "/tmp/krb5cc_.*"
+result_type: ADD
+score: 5

@@ -1,0 +1,17 @@
+name: "check_network_interfaces"
+description: "Check if the routing tables are changed by the package."
+module: "guest.analyzers.checksum_file_write_analyzer.RecordingChecksumFileWriteAnalyzer"
+category: "file_system"
+arguments {
+  string_args: "/proc/net/if_inet6"
+  string_args: "/etc/network/interfaces"
+  recursive_file_walk: false
+}
+diff_pairs {
+  before: EXTRACT
+  after: RUN_BINARIES
+}
+diff_pairs {
+  before: EXTRACT
+  after: PURGE
+}

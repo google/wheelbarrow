@@ -1,0 +1,34 @@
+name: "check_system_file_permissions"
+description: "Check which permissions are changed by the package."
+module: "guest.analyzers.permission_analyzer.PermissionAnalyzer"
+category: "file_system"
+arguments {
+  string_args: "/bin"
+  string_args: "/boot"
+  string_args: "/dev"
+  string_args: "/etc"
+  string_args: "/lib"
+  string_args: "/lib32"
+  string_args: "/lib64"
+  string_args: "/opt"
+  string_args: "/root"
+  string_args: "/sbin"
+  string_args: "/usr/bin"
+  string_args: "/usr/include"
+  string_args: "/usr/lib"
+  string_args: "/usr/lib32"
+  string_args: "/usr/lib64"
+  string_args: "/usr/local/bin"
+  string_args: "/usr/local/sbin"
+  string_args: "/usr/sbin"
+  recursive_file_walk: true
+}
+diff_pairs {
+  before: EXTRACT
+  after: RUN_BINARIES
+}
+diff_pairs {
+  before: EXTRACT
+  after: REMOVE
+}
+suite: "system_file_integrity"

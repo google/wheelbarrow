@@ -1,0 +1,209 @@
+// Copyright 2013 Google Inc. All Rights Reserved.
+// Author: docteau@google.com (Damien Octeau)
+
+syntax = "proto2";
+
+package wheelbarrow_common;
+
+message Package {
+  required string name = 1;
+  required string version = 2;
+  required string architecture = 3;
+  required string section = 4;
+  optional string description = 5;
+  enum PackageStatus {
+    AVAILABLE = 0;
+    FAILED = 1;
+    PROCESSING = 2;
+    DONE = 3;
+  }
+  required PackageStatus status = 6;
+  required int32 analysis_attempts = 7;
+  optional string repository = 8;
+  optional int64 analysis_start = 9;
+  optional int64 analysis_end = 10;
+  optional string error = 11;
+}
+
+enum Trigger {
+  EXTRACT = 0;
+  INSTALL = 1;
+  START_SERVICE = 2;
+  STOP_SERVICE = 3;
+  RUN_BINARIES = 4;
+  REMOVE = 5;
+  PURGE = 6;
+}
+
+message AnalysisDescriptor {
+  required string name = 1;
+  required string description = 2;
+  required string module = 3;
+  required string category = 4;
+  message Argument {
+    optional bool prepend_extract_dir = 1;
+    repeated string string_args = 2;
+    optional bool recursive_file_walk = 3;
+    repeated string excluded_patterns = 4;
+  }
+  repeated Argument arguments = 5;
+  repeated Trigger descriptive_triggers = 6;
+  message DiffPair {
+    required Trigger before = 1;
+    required Trigger after = 2;
+  }
+  repeated DiffPair diff_pairs = 7;
+  optional string suite = 8;
+}
+
+enum ResultType {
+  NO_TYPE = 0;
+  ADD = 1;
+  DELETE = 2;
+  CHANGE = 3;
+  DESCRIPTIVE = 4;
+}
+
+message FileState {
+  required Trigger trigger = 1;
+  optional string permissions = 2;
+  optional bytes contents = 3;
+  optional string dependencies = 4;
+  message HardeningFeatures {
+    optional string relro = 1;
+  }
+  optional HardeningFeatures hardening_features = 5;
+  optional bytes md5 = 6;
+  optional bytes sha1 = 7;
+  optional bytes sha256 = 8;
+  optional uint64 creation_time = 9;
+  optional uint64 last_access_time = 10;
+  optional uint64 last_write_time = 11;
+}
+
+message FileResult {
+  required ResultType type = 1;
+  required string path = 2;
+  enum FileType {
+    BINARY = 0;
+    SCRIPT = 1;
+    TEXT = 2;
+    OTHER = 3;
+  }
+  required FileType file_type = 3;
+  repeated FileState states = 4;
+}
+
+message NetworkState {
+  required Trigger trigger = 1;
+  optional string local_ip4address = 2;
+  optional string local_ip6address = 3;
+  optional string local_port = 4;
+  optional string foreign_ip4address = 5;
+  optional string foreign_ip6address = 6;
+  optional string foreign_port = 7;
+  optional bool is_udp = 8;
+  optional string process_path = 9; // Process that opened a port.
+}
+
+message NetworkResult {
+  required ResultType type = 1;
+  repeated NetworkState states = 2;
+}
+
+message ProcessState {
+  required Trigger trigger = 1;
+  enum Action {
+    STARTED = 0;
+    RESTARTED = 1;
+    KILLED = 2;
+  }
+  optional Action action = 2;
+}
+
+message ProcessResult {
+  required ResultType type = 1;
+  required string path = 2;
+  repeated ProcessState states = 3;
+}
+
+message MemoryState {
+  required Trigger trigger = 1;
+  // TODO(docteau).
+}
+
+message MemoryResult {
+  required ResultType type = 1;
+  repeated MemoryState states = 2;
+}
+
+message Result {
+  repeated FileResult package_results = 1;
+  repeated FileResult file_system_results = 2;
+  repeated NetworkResult network_results = 3;
+  repeated ProcessResult process_results = 4;
+  repeated MemoryResult memory_results = 5;
+}
+
+// Result for a single analysis.
+message AnalysisResult {
+  required string analysis_name = 1;
+  repeated Result results = 2;
+}
+
+message ApplicationResult {
+  required Package package = 1;
+  repeated AnalysisResult analysis_results = 2;
+}
+
+message BatchPackageDescriptor {
+  required string name_regex = 1;
+  optional string architecture = 2;
+  optional int32 max_count = 3;
+}
+
+message NfsAnalysisConfig {
+  required string input_dir = 1;
+  required string output_dir = 2;
+  required string log_dir = 3;
+  required bool text_output = 6;
+  // The timeout lets the guest terminate itself gracefully before the host
+  // kills it.
+  required int32 timeout = 7;
+}
+
+// Result score dictionary.
+message FileResultScoreDictionaryEntry {
+  optional string analysis_name = 1;
+  // The result_name is to be used when the result name should be different from
+  // the analysis name (e.g., analysis suites).
+  optional string result_name = 2;
+  optional string path = 3;
+  optional ResultType result_type = 4;
+  repeated FileState states = 5;
+  required uint32 score = 6;
+}
+
+message ResultScore {
+  required string result_name = 1;
+  required int32 score = 2;
+}
+
+message PackageLevelFileScore {
+  required string path = 1;
+  repeated ResultScore result_scores = 2;
+  optional int32 overall_score = 3;
+}
+
+// Score per analysis, for all files.
+message PackageLevelAnalysisScore {
+  required string result_name = 1;
+  optional int32 score = 2;
+}
+
+message DetailedPackageScore {
+  required Package package = 1;
+  repeated PackageLevelFileScore file_result_scores = 2;
+  repeated PackageLevelAnalysisScore overall_result_scores = 3;
+  required int32 package_score = 4;
+}

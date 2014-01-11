@@ -1,0 +1,5 @@
+analysis_name: "check_sensitive_file_access"
+result_name: "user_file_access"
+path: "/etc/passwd.*|/etc/shadow.*"
+result_type: ADD
+score: 5

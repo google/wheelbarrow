@@ -1,0 +1,5 @@
+rt_sigreturn(0x11)                      = 21747
+faccessat(AT_FDCWD, "/etc/init/modemmanager.conf", R_OK) = 0
+execve("usr/bin/start", ["start", "modemmanager"], [/* 32 vars */]) = -1 ENOENT (No such file or directory)
+brk(0)                                  = 0x7f66b6e69000
+mmap(NULL, 8192, PROT_READ|PROT_WRITE, MAP_PRIVATE|MAP_ANONYMOUS, -1, 0) = 0x7f66b5b32000

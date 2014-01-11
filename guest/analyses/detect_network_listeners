@@ -1,0 +1,8 @@
+name: "detect_network_listeners"
+description: "Detect new network listeners."
+module: "guest.analyzers.network_listener_analyzer.NetworkListenerAnalyzer"
+category: "network"
+arguments {
+  string_args: ""
+}
+descriptive_triggers: RUN_BINARIES

@@ -1,0 +1,85 @@
+Active Internet connections (servers and established)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       PID/Program name
+tcp        0      0 0.0.0.0:111             0.0.0.0:*               LISTEN      597/rpcbind     
+tcp        0      0 0.0.0.0:48755           0.0.0.0:*               LISTEN      604/rpc.statd   
+tcp        0      0 0.0.0.0:21              0.0.0.0:*               LISTEN      2769/inetd      
+tcp        0      0 127.0.0.1:53            0.0.0.0:*               LISTEN      1078/dnsmasq    
+tcp        0      0 127.0.0.1:631           0.0.0.0:*               LISTEN      697/cupsd       
+tcp        0      0 0.0.0.0:37753           0.0.0.0:*               LISTEN      -               
+tcp        0      0 10.0.2.15:757           172.17.81.193:2049      ESTABLISHED -               
+tcp6       0      0 :::55695                :::*                    LISTEN      604/rpc.statd   
+tcp6       0      0 :::111                  :::*                    LISTEN      597/rpcbind     
+tcp6       0      0 ::1:631                 :::*                    LISTEN      697/cupsd       
+tcp6       0      0 :::58583                :::*                    LISTEN      -               
+udp        0      0 0.0.0.0:38728           0.0.0.0:*                           604/rpc.statd   
+udp        0      0 0.0.0.0:44952           0.0.0.0:*                           680/avahi-daemon: r
+udp        0      0 127.0.0.1:53            0.0.0.0:*                           1078/dnsmasq    
+udp        0      0 0.0.0.0:68              0.0.0.0:*                           857/dhclient    
+udp        0      0 0.0.0.0:111             0.0.0.0:*                           597/rpcbind     
+udp        0      0 0.0.0.0:772             0.0.0.0:*                           597/rpcbind     
+udp        0      0 127.0.0.1:780           0.0.0.0:*                           604/rpc.statd   
+udp        0      0 0.0.0.0:5353            0.0.0.0:*                           680/avahi-daemon: r
+udp6       0      0 :::111                  :::*                                597/rpcbind     
+udp6       0      0 :::41367                :::*                                680/avahi-daemon: r
+udp6       0      0 :::772                  :::*                                597/rpcbind     
+udp6       0      0 :::46132                :::*                                604/rpc.statd   
+udp6       0      0 :::5353                 :::*                                680/avahi-daemon: r
+Active UNIX domain sockets (servers and established)
+Proto RefCnt Flags       Type       State         I-Node   PID/Program name    Path
+unix  2      [ ACC ]     STREAM     LISTENING     8468     963/acpid           /var/run/acpid.socket
+unix  2      [ ACC ]     STREAM     LISTENING     7448     660/bluetoothd      /var/run/sdp
+unix  2      [ ACC ]     STREAM     LISTENING     6599     1/init              @/com/ubuntu/upstart
+unix  12     [ ]         DGRAM                    7488     676/rsyslogd        /dev/log
+unix  2      [ ACC ]     STREAM     LISTENING     7461     660/bluetoothd      @/org/bluez/audio
+unix  2      [ ACC ]     STREAM     LISTENING     7516     680/avahi-daemon: r /var/run/avahi-daemon/socket
+unix  2      [ ACC ]     STREAM     LISTENING     7261     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  2      [ ACC ]     SEQPACKET  LISTENING     6811     347/udevd           /run/udev/control
+unix  2      [ ACC ]     STREAM     LISTENING     12714    697/cupsd           /var/run/cups/cups.sock
+unix  2      [ ACC ]     STREAM     LISTENING     7143     597/rpcbind         /run/rpcbind.sock
+unix  2      [ ]         DGRAM                    12831    3658/sudo           
+unix  2      [ ]         DGRAM                    12828    3658/sudo           
+unix  3      [ ]         STREAM     CONNECTED     11697    622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     11696    697/cupsd           
+unix  3      [ ]         STREAM     CONNECTED     9716     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9715     1329/console-kit-da 
+unix  3      [ ]         STREAM     CONNECTED     9693     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9692     1329/console-kit-da 
+unix  3      [ ]         STREAM     CONNECTED     9681     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     9680     1076/login          
+unix  2      [ ]         DGRAM                    9679     1076/login          
+unix  2      [ ]         DGRAM                    9461     659/rpc.idmapd      
+unix  2      [ ]         DGRAM                    9329     1078/dnsmasq        
+unix  3      [ ]         STREAM     CONNECTED     8496     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     8495     969/whoopsie        
+unix  2      [ ]         DGRAM                    8467     963/acpid           
+unix  2      [ ]         DGRAM                    8063     857/dhclient        
+unix  3      [ ]         STREAM     CONNECTED     7953     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7952     831/polkitd         
+unix  2      [ ]         DGRAM                    7943     622/dbus-daemon     
+unix  3      [ ]         STREAM     CONNECTED     7933     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7932     804/NetworkManager  
+unix  3      [ ]         STREAM     CONNECTED     7929     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7928     804/NetworkManager  
+unix  2      [ ]         DGRAM                    7925     804/NetworkManager  
+unix  3      [ ]         STREAM     CONNECTED     7858     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7857     800/modem-manager   
+unix  2      [ ]         DGRAM                    7856     800/modem-manager   
+unix  3      [ ]         STREAM     CONNECTED     7756     1/init              @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     7747     826/upstart-socket- 
+unix  3      [ ]         STREAM     CONNECTED     7519     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7518     680/avahi-daemon: r 
+unix  3      [ ]         STREAM     CONNECTED     7513     681/avahi-daemon: c 
+unix  3      [ ]         STREAM     CONNECTED     7512     680/avahi-daemon: r 
+unix  2      [ ]         DGRAM                    7509     680/avahi-daemon: r 
+unix  3      [ ]         STREAM     CONNECTED     7430     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7429     660/bluetoothd      
+unix  3      [ ]         STREAM     CONNECTED     7421     659/rpc.idmapd      
+unix  3      [ ]         STREAM     CONNECTED     7420     659/rpc.idmapd      
+unix  3      [ ]         STREAM     CONNECTED     7409     622/dbus-daemon     /var/run/dbus/system_bus_socket
+unix  3      [ ]         STREAM     CONNECTED     7408     1/init              
+unix  3      [ ]         STREAM     CONNECTED     7321     622/dbus-daemon     
+unix  3      [ ]         STREAM     CONNECTED     7320     622/dbus-daemon     
+unix  3      [ ]         DGRAM                    6858     347/udevd           
+unix  3      [ ]         DGRAM                    6857     347/udevd           
+unix  3      [ ]         STREAM     CONNECTED     6796     1/init              @/com/ubuntu/upstart
+unix  3      [ ]         STREAM     CONNECTED     6791     342/upstart-udev-br 

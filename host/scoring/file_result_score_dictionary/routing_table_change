@@ -1,0 +1,3 @@
+analysis_name: "check_routing_tables"
+result_type: CHANGE
+score: 5

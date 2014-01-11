@@ -1,0 +1,23 @@
+analysis_name: "test"
+results {
+  file_system_results {
+    type: DESCRIPTIVE
+    path: "file2"
+    file_type: OTHER
+    states {
+      trigger: EXTRACT
+      permissions: "0644"
+    }
+  }
+}
+results {
+  file_system_results {
+    type: DESCRIPTIVE
+    path: "file1"
+    file_type: TEXT
+    states {
+      trigger: EXTRACT
+      permissions: "0444"
+    }
+  }
+}

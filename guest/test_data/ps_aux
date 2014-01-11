@@ -1,0 +1,78 @@
+USER       PID %CPU %MEM    VSZ   RSS TTY      STAT START   TIME COMMAND
+root         1  0.0  0.0  24592  2508 ?        Ss   Aug19   0:00 /sbin/init
+root         2  0.0  0.0      0     0 ?        S    Aug19   0:00 [kthreadd]
+root         3  0.0  0.0      0     0 ?        S    Aug19   0:00 [ksoftirqd/0]
+root         5  0.0  0.0      0     0 ?        S    Aug19   0:00 [kworker/u:0]
+root         6  0.0  0.0      0     0 ?        S    Aug19   0:00 [migration/0]
+root         7  0.0  0.0      0     0 ?        S    Aug19   0:00 [watchdog/0]
+root         8  0.0  0.0      0     0 ?        S<   Aug19   0:00 [cpuset]
+root         9  0.0  0.0      0     0 ?        S<   Aug19   0:00 [khelper]
+root        10  0.0  0.0      0     0 ?        S    Aug19   0:00 [kdevtmpfs]
+root        11  0.0  0.0      0     0 ?        S<   Aug19   0:00 [netns]
+root        12  0.0  0.0      0     0 ?        S    Aug19   0:00 [sync_supers]
+root        13  0.0  0.0      0     0 ?        S    Aug19   0:00 [bdi-default]
+root        14  0.0  0.0      0     0 ?        S<   Aug19   0:00 [kintegrityd]
+root        15  0.0  0.0      0     0 ?        S<   Aug19   0:00 [kblockd]
+root        16  0.0  0.0      0     0 ?        S<   Aug19   0:00 [ata_sff]
+root        17  0.0  0.0      0     0 ?        S    Aug19   0:00 [khubd]
+root        18  0.0  0.0      0     0 ?        S<   Aug19   0:00 [md]
+root        21  0.0  0.0      0     0 ?        S    Aug19   0:00 [khungtaskd]
+root        22  0.0  0.0      0     0 ?        S    Aug19   0:00 [kswapd0]
+root        23  0.0  0.0      0     0 ?        SN   Aug19   0:00 [ksmd]
+root        24  0.0  0.0      0     0 ?        SN   Aug19   0:00 [khugepaged]
+root        25  0.0  0.0      0     0 ?        S    Aug19   0:00 [fsnotify_mark]
+root        26  0.0  0.0      0     0 ?        S    Aug19   0:00 [ecryptfs-kthrea]
+root        27  0.0  0.0      0     0 ?        S<   Aug19   0:00 [crypto]
+root        36  0.0  0.0      0     0 ?        S<   Aug19   0:00 [kthrotld]
+root        37  0.0  0.0      0     0 ?        S    Aug19   0:00 [scsi_eh_0]
+root        38  0.0  0.0      0     0 ?        S    Aug19   0:00 [scsi_eh_1]
+root        39  0.0  0.0      0     0 ?        S    Aug19   0:00 [kworker/u:2]
+root        40  0.0  0.0      0     0 ?        S<   Aug19   0:00 [binder]
+root        60  0.0  0.0      0     0 ?        S<   Aug19   0:00 [deferwq]
+root        61  0.0  0.0      0     0 ?        S<   Aug19   0:00 [charger_manager]
+root        62  0.0  0.0      0     0 ?        S<   Aug19   0:00 [devfreq_wq]
+root       231  0.0  0.0      0     0 ?        S    Aug19   0:00 [jbd2/sda2-8]
+root       232  0.0  0.0      0     0 ?        S<   Aug19   0:00 [ext4-dio-unwrit]
+root       342  0.0  0.0  17232   636 ?        S    Aug19   0:00 upstart-udev-bridge --daemon
+root       347  0.0  0.0  21968  1672 ?        Ss   Aug19   0:00 /sbin/udevd --daemon
+root       567  0.0  0.0  21960  1244 ?        S    Aug19   0:00 /sbin/udevd --daemon
+root       568  0.0  0.0  21824  1184 ?        S    Aug19   0:00 /sbin/udevd --daemon
+root       597  0.0  0.0  19200   984 ?        Ss   Aug19   0:00 rpcbind -w
+statd      604  0.0  0.0  21504  1320 ?        Ss   Aug19   0:00 rpc.statd -L
+root       620  0.0  0.0      0     0 ?        S<   Aug19   0:00 [rpciod]
+102        622  0.0  0.0  24272  1252 ?        Ss   Aug19   0:00 dbus-daemon --system --fork --activation=upstart
+root       632  0.0  0.0      0     0 ?        S<   Aug19   0:00 [nfsiod]
+root       659  0.0  0.0  25540   952 ?        Ss   Aug19   0:00 rpc.idmapd
+root       660  0.0  0.0  21188  1428 ?        Ss   Aug19   0:00 /usr/sbin/bluetoothd
+root       662  0.0  0.0      0     0 ?        S<   Aug19   0:00 [kpsmoused]
+root       675  0.0  0.0      0     0 ?        S<   Aug19   0:00 [krfcommd]
+syslog     676  0.0  0.0 249472  1384 ?        Sl   Aug19   0:02 rsyslogd -c5
+avahi      680  0.0  0.0  32308  1680 ?        S    Aug19   0:00 avahi-daemon: running [broker-virtual-machine.local]
+avahi      681  0.0  0.0  32180   468 ?        S    Aug19   0:00 avahi-daemon: chroot helper
+root       697  0.0  0.0 104052  3956 ?        Ss   Aug19   0:00 /usr/sbin/cupsd -F
+root       800  0.0  0.0  79040  3112 ?        Ss   Aug19   0:00 /usr/sbin/modem-manager
+root       804  0.0  0.1 229164  4852 ?        Ssl  Aug19   0:00 NetworkManager
+root       826  0.0  0.0  15188   424 ?        S    Aug19   0:00 upstart-socket-bridge --daemon
+root       831  0.0  0.0 186592  3176 ?        Sl   Aug19   0:00 /usr/lib/policykit-1/polkitd --no-debug
+root       857  0.0  0.0   7264  1484 ?        S    Aug19   0:00 /sbin/dhclient -d -4 -sf /usr/lib/NetworkManager/nm-dhcp-client.action -pf /var/run/sendsigs.omit.d/network-manager.dhclient-eth0.pid -lf /var/lib/dhcp/dhclient-851e28a6-369a-4d97-8967-6f180e39c465-eth0.lease -cf /var/run/nm-dhclient-eth0.conf eth0
+root       891  0.0  0.0      0     0 ?        S<   Aug19   0:00 [kvm-irqfd-clean]
+root       899  0.0  0.0  19984   936 tty4     Ss+  Aug19   0:00 /sbin/getty -8 38400 tty4
+root       906  0.0  0.0  19984   944 tty5     Ss+  Aug19   0:00 /sbin/getty -8 38400 tty5
+root       928  0.0  0.0  19984   944 tty2     Ss+  Aug19   0:00 /sbin/getty -8 38400 tty2
+root       930  0.0  0.0  19984   944 tty3     Ss+  Aug19   0:00 /sbin/getty -8 38400 tty3
+root       937  0.0  0.0  19984   940 tty6     Ss+  Aug19   0:00 /sbin/getty -8 38400 tty6
+root       963  0.0  0.0   4460   816 ?        Ss   Aug19   0:00 acpid -c /etc/acpi/events -s /var/run/acpid.socket
+root       965  0.0  0.0  19112  1008 ?        Ss   Aug19   0:00 cron
+daemon     966  0.0  0.0  16908   376 ?        Ss   Aug19   0:00 atd
+whoopsie   969  0.0  0.1 202288  4988 ?        Ssl  Aug19   0:00 whoopsie
+root      1076  0.0  0.0  71360  1960 tty1     Ss   Aug19   0:00 /bin/login --       
+nobody    1078  0.0  0.0  33020  1260 ?        S    Aug19   0:00 /usr/sbin/dnsmasq --no-resolv --keep-in-foreground --no-hosts --bind-interfaces --pid-file=/var/run/sendsigs.omit.d/network-manager.dnsmasq.pid --listen-address=127.0.0.1 --conf-file=/var/run/nm-dns-dnsmasq.conf --cache-size=0 --proxy-dnssec
+root      1154  0.0  0.0      0     0 ?        S    Aug19   0:00 [nfsv4.0-svc]
+root      1329  0.0  0.0 584300  3736 ?        Sl   Aug19   0:00 /usr/sbin/console-kit-daemon --no-daemon
+broker    1402  0.0  0.1  30840  7852 tty1     S    Aug19   0:00 -bash
+root      2769  0.0  0.0  10660   688 ?        Ss   Aug19   0:00 /usr/sbin/inetd
+root      3639  0.0  0.0      0     0 ?        S    11:23   0:00 [kworker/0:2]
+root      3640  0.0  0.0      0     0 ?        S    11:28   0:00 [kworker/0:0]
+root      3655  0.0  0.0      0     0 ?        S    11:31   0:00 [flush-8:0]
+root      3689  0.0  0.0      0     0 ?        S    11:33   0:00 [kworker/0:1]
+broker    3691  0.0  0.0  22360  1200 tty1     R+   11:36   0:00 ps aux

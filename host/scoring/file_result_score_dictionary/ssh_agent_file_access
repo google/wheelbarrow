@@ -1,0 +1,5 @@
+analysis_name: "check_sensitive_file_access"
+result_name: "ssh_agent_file_access"
+path: "/tmp/ssh-.*"
+result_type: ADD
+score: 5

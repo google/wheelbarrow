@@ -1,0 +1,44 @@
+analysis_name: "test"
+results {
+  file_system_results {
+    type: ADD
+    path: "file3"
+    file_type: SCRIPT
+    states {
+      trigger: EXTRACT
+    }
+    states {
+      trigger: INSTALL
+      permissions: "0444"
+    }
+  }
+}
+results {
+  file_system_results {
+    type: DELETE
+    path: "file1"
+    file_type: TEXT
+    states {
+      trigger: EXTRACT
+      permissions: "0444"
+    }
+    states {
+      trigger: INSTALL
+    }
+  }
+}
+results {
+  file_system_results {
+    type: CHANGE
+    path: "file2"
+    file_type: OTHER
+    states {
+      trigger: EXTRACT
+      permissions: "0644"
+    }
+    states {
+      trigger: INSTALL
+      permissions: "0666"
+    }
+  }
+}

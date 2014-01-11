@@ -1,0 +1,29 @@
+analysis_name: "test"
+results {
+  network_results {
+    type: DESCRIPTIVE
+    states {
+      trigger: RUN_BINARIES
+      local_ip4address: "0.0.0.0"
+      local_port: "21"
+      foreign_ip4address: "0.0.0.0"
+      foreign_port: "*"
+      is_udp: false
+      process_path: "/usr/sbin/inetd"
+    }
+  }
+}
+results {
+  network_results {
+    type: DESCRIPTIVE
+    states {
+      trigger: RUN_BINARIES
+      local_ip6address: "::1"
+      local_port: "631"
+      foreign_ip6address: "::"
+      foreign_port: "*"
+      is_udp: false
+      process_path: "/usr/sbin/cupsd"
+    }
+  }
+}

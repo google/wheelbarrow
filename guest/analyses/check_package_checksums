@@ -1,0 +1,11 @@
+name: "check_package_checksums"
+description: "Get checksums of all files in the package."
+module: "guest.analyzers.checksum_analyzer.ChecksumAnalyzer"
+category: "package"
+arguments {
+  prepend_extract_dir: true
+  string_args: ""
+  recursive_file_walk: true
+}
+descriptive_triggers: EXTRACT
+suite: "package"

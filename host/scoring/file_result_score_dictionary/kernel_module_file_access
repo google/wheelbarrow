@@ -1,0 +1,5 @@
+analysis_name: "check_sensitive_file_access"
+result_name: "kernel_module_file_access"
+path: "/lib/modules.*"
+result_type: ADD
+score: 5

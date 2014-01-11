@@ -1,0 +1,11 @@
+name: "check_permissions"
+description: "Check which permissions are changed by the package."
+module: "analyzers.permission_checker.PermissionChecker"
+category: "file_system"
+argument {
+  string_args: "/bin"
+}
+diff_pairs {
+  before: EXTRACT
+  after: INSTALL
+}

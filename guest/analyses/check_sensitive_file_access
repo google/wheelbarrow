@@ -1,0 +1,21 @@
+name: "check_sensitive_file_access"
+description: "Check access (read/write/move) to sensitive file."
+module: "guest.analyzers.inotify_file_analyzer.InotifyFileReadModifyMoveAnalyzer"
+category: "file_system"
+arguments {
+  string_args: "/tmp/krb5cc_*"
+  string_args: "/tmp/ssh-*"
+  string_args: "/etc/passwd*"
+  string_args: "/etc/shadow*"
+  string_args: "/etc/group*"
+  string_args: "/etc/gshadow*"
+  string_args: "/etc/resolv.conf"
+  string_args: "/etc/hosts"
+  string_args: "/etc/nsswitch.conf"
+  string_args: "/var/run/ccache/krb5cc*"
+  recursive_file_walk: false
+}
+diff_pairs {
+  before: EXTRACT
+  after: PURGE
+}

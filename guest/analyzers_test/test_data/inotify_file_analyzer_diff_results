@@ -1,0 +1,28 @@
+analysis_name: "test"
+results {
+  file_system_results {
+    type: ADD
+    path: "file2"
+    file_type: SCRIPT
+    states {
+      trigger: EXTRACT
+    }
+    states {
+      trigger: RUN_BINARIES
+    }
+  }
+}
+results {
+  file_system_results {
+    type: ADD
+    path: "file1"
+    file_type: TEXT
+    states {
+      trigger: EXTRACT
+    }
+    states {
+      trigger: RUN_BINARIES
+    }
+  }
+}
+

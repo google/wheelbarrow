@@ -1,0 +1,17 @@
+name: "check_routing_tables"
+description: "Check if the routing tables are changed by the package."
+module: "guest.analyzers.checksum_file_write_analyzer.NonRecordingChecksumFileWriteAnalyzer"
+category: "file_system"
+arguments {
+  string_args: "/proc/net/route"
+  string_args: "/proc/net/ipv6_route"
+  recursive_file_walk: false
+}
+diff_pairs {
+  before: EXTRACT
+  after: RUN_BINARIES
+}
+diff_pairs {
+  before: EXTRACT
+  after: PURGE
+}

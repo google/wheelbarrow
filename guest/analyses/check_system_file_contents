@@ -1,0 +1,43 @@
+name: "check_system_file_contents"
+description: "Check if system file contents are changed by the package."
+module: "guest.analyzers.checksum_file_write_analyzer.NonRecordingChecksumFileWriteAnalyzer"
+category: "file_system"
+arguments {
+  string_args: "/bin"
+  string_args: "/boot"
+  string_args: "/etc"
+  string_args: "/lib"
+  string_args: "/lib32"
+  string_args: "/lib64"
+  string_args: "/opt"
+  string_args: "/root"
+  string_args: "/sbin"
+  string_args: "/usr/bin"
+  string_args: "/usr/include"
+  string_args: "/usr/lib"
+  string_args: "/usr/lib32"
+  string_args: "/usr/lib64"
+  string_args: "/usr/local/bin"
+  string_args: "/usr/local/sbin"
+  string_args: "/usr/sbin"
+  recursive_file_walk: true
+  excluded_patterns: "/tmp/krb5cc_.*"
+  excluded_patterns: "/etc/shadow.*"
+  excluded_patterns: "/tmp/ssh-.*"
+  excluded_patterns: "/etc/passwd.*"
+  excluded_patterns: "/etc/group.*"
+  excluded_patterns: "/etc/gshadow.*"
+  excluded_patterns: "/etc/resolv.conf"
+  excluded_patterns: "/etc/hosts"
+  excluded_patterns: "/etc/nsswitch.conf"
+  excluded_patterns: "/etc/network/interfaces"
+}
+diff_pairs {
+  before: EXTRACT
+  after: RUN_BINARIES
+}
+diff_pairs {
+  before: EXTRACT
+  after: PURGE
+}
+suite: "system_file_integrity"

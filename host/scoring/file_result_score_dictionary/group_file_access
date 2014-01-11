@@ -1,0 +1,5 @@
+analysis_name: "check_sensitive_file_access"
+result_name: "group_file_access"
+path: "/etc/group.*|/etc/gshadow.*"
+result_type: ADD
+score: 5

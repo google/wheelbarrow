@@ -1,0 +1,9 @@
+type: ADD
+path: 'test_path'
+file_type: SCRIPT
+states {
+  trigger: EXTRACT
+}
+states {
+  trigger: INSTALL
+}
