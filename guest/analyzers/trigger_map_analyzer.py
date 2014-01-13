@@ -2,7 +2,7 @@
 #
 # Copyright 2013 Google Inc. All Rights Reserved.
 #
-# Author: octeau@cs.psu.edu (Damien Octeau)
+# Author: octeau@cse.psu.edu (Damien Octeau)
 # Author: theinsecureroot@gmail.com (Cyrus Vesuna)
 #
 #
