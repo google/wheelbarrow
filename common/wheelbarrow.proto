@@ -1,5 +1,6 @@
 // Copyright 2013 Google Inc. All Rights Reserved.
-// Author: docteau@google.com (Damien Octeau)
+// Author: octeau@cse.psu.edu (Damien Octeau)
+// Author: theinsecureroot@gmail.com (Cyrus Vesuna)
 
 syntax = "proto2";
 
@@ -129,7 +130,7 @@ message ProcessResult {
 
 message MemoryState {
   required Trigger trigger = 1;
-  // TODO(docteau).
+  // TODO(Damien Octeau).
 }
 
 message MemoryResult {
