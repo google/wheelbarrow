@@ -52,14 +52,14 @@ from guest.triggers import TriggerError
 FLAGS = gflags.FLAGS
 
 gflags.DEFINE_string('outdir', './', 'The output directory for the analysis '
-                    'results.', short_name='o')
+                     'results.', short_name='o')
 gflags.DEFINE_boolean('textout', False, 'Activate text output for analysis '
-                     'results. By default, the results are output to a binary '
-                     'protocol buffer.', short_name='t')
-gflags.DEFINE_string('nfs', "/mnt/broker/analysis.config", 'The path to an NFS config file.',
-                     short_name='n')
-gflags.DEFINE_string('package', None, 'The name of an application package to be '
-                    'analyzed.', short_name='p')
+                      'results. By default, the results are output to a binary '
+                      'protocol buffer.', short_name='t')
+gflags.DEFINE_string('nfs', "/mnt/broker/analysis.config", 'The path to an NFS '
+                     'config file.', short_name='n')
+gflags.DEFINE_string('package', None, 'The name of an application package to be'
+                     ' analyzed.', short_name='p')
 
 
 _ANALYSIS_DESCRIPTORS_PATH = WHEELBARROW_HOME + '/guest/analyses/*'

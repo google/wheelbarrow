@@ -24,11 +24,10 @@
        --scoredir <output directory>
 """
 
+import gflags
 import logging
 import os.path
 import sys
-
-import gflags
 WHEELBARROW_HOME = os.getenv('WHEELBARROW_HOME', os.path.dirname(__file__))
 sys.path.append(WHEELBARROW_HOME)
 from host.scoring.result_directory_scorer import ScoreResultDirectory
