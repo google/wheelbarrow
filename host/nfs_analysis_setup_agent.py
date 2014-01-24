@@ -19,6 +19,8 @@
 #     limitations under the License.
 """NFS analysis setup."""
 
+import apt
+import apt_pkg
 import logging
 import os
 import os.path
@@ -26,9 +28,6 @@ import re
 import shutil
 import stat
 import sys
-
-import apt
-import apt_pkg
 WHEELBARROW_HOME = os.getenv('WHEELBARROW_HOME', os.path.dirname(__file__))
 sys.path.append(WHEELBARROW_HOME)
 from common import utils

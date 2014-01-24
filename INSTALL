@@ -16,9 +16,12 @@ Run the following:
 sudo service nfs-kernel-server restart
 sudo exportfs -a
 
-Extract the codebase to the nfs share (/home/foo/myshre) in this case
-set the environment variable WHEELBARROW_HOME to point to this
+Extract the codebase to the nfs share (/home/foo/myshare in this case).
+set the environment variable WHEELBARROW_HOME to point to this directory
+(/home/foo/myshare/wheelbarrow).
 
+Set up python modules gflags and protobufs:
+sudo apt-get install python-gflags python-protobuf protobuf-compiler
 
 ______________________________________________________________________________
 
@@ -63,7 +66,7 @@ Mount the NFS share:
 sudo mount -a
 
 Copy the Upstart configuration file to /etc/init and power off the VM:
-sudo cp /mnt/broker/broker_nfs.conf /etc/init
+sudo cp /mnt/broker/wheelbarrow/guest/broker_nfs.conf /etc/init
 sudo poweroff
 
 ______________________________________________________________________________
@@ -79,8 +82,8 @@ This corresponds to at most 500 packages whose name starts with “ftp” and
  whose architecture is amd64.
 
 Then you can launch the analyses:
-cd <exported filesystem directory>
-host/analysis_launcher.py --batchfile /home/foo/share/wb/bpdesc.txt --image /home/foo/share/qemu/vanilla.qcow2 -m 4096 -g /mnt/broker -a -h /home/foo/share/ -t 1200 --textout --snapshot
+cd $WHEELBARROW_HOME
+host/analysis_launcher.py --batchfile /home/foo/bpdesc.txt --image /home/foo/ubuntu.qcow2 -m 4096 -g /mnt/broker -h /home/foo/share/ -t 1200 --textout --snapshot
 
 
 

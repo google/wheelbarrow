@@ -21,13 +21,13 @@
 # Launch analysis broker on the VM.
 
 NFS_PATH=/mnt/broker
-export WHEELBARROW_HOME=${NFS_PATH}/wheelbarrow_home
+export WHEELBARROW_HOME=${NFS_PATH}/wheelbarrow
 BROKER=${WHEELBARROW_HOME}/guest/broker.py
 
 # Avoid prompts during install.
 export DEBIAN_FRONTENT=noninteractive
 
 # Start analysis.
-sudo -E "${BROKER}" --nfs "${NFS_PATH}/analysis.config" --alsologtostderr
+sudo -E "${BROKER}" --nfs "${NFS_PATH}/analysis.config"
 
 poweroff

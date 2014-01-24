@@ -32,18 +32,18 @@
        [--updatebroker]
 """
 
-import logging
 from multiprocessing import Pool
+import gflags
+import logging
 import os
 import os.path
 import sys
 WHEELBARROW_HOME = os.getenv('WHEELBARROW_HOME', os.path.dirname(__file__))
 sys.path.append(WHEELBARROW_HOME)
-
-import gflags
 from host.nfs_analysis_setup_agent import NfsAnalysisSetupAgent
 from host.scoring.result_directory_scorer import ScoreResultDirectory
 import host.vm_launcher
+
 
 FLAGS = gflags.FLAGS
 
