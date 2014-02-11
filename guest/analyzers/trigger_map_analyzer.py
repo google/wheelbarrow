@@ -19,8 +19,8 @@
 #     limitations under the License.
 """An Analyzer abstract class with a trigger map."""
 
-import sys
 import os.path
+import sys
 WHEELBARROW_HOME = os.getenv('WHEELBARROW_HOME', os.path.dirname(__file__))
 sys.path.append(WHEELBARROW_HOME)
 
