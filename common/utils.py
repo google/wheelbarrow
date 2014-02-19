@@ -20,7 +20,7 @@
 """Common utility functions."""
 
 import logging
-import os.path
+import os
 import sys
 
 WHEELBARROW_HOME = os.getenv('WHEELBARROW_HOME', os.path.dirname(__file__))
@@ -49,6 +49,10 @@ def LoadFileToString(file_path, file_size_limit=-1):
                   file_size_limit)
     return None
   try:
+    if os.path.islink(file_path):
+      linked_path = os.readlink(file_path)
+      file_path = (linked_path if os.path.isabs(linked_path)
+                   else os.path.join(os.path.dirname(file_path), linked_path))
     in_file = open(file_path)
     file_contents_string = in_file.read(file_size_limit)
     in_file.close()

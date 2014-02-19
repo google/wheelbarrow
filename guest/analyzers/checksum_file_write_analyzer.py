@@ -54,7 +54,7 @@ class ChecksumFileWriteAnalyzer(FileAnalyzer):
 
   def _PerformAnalysis(self, file_path):
     contents = LoadFileToString(file_path)
-    if not contents:
+    if contents is None:
       raise RecoverableAnalysisError('Could not load file %s for hashing.'
                                      % file_path)
     checksum = FileAnalyzer._ComputeStringHash(contents, hashlib.sha256)
@@ -86,7 +86,7 @@ class ChecksumFileWriteAnalyzer(FileAnalyzer):
     for key in diff_result.removed_keys:
       result = self._PrepareDiffFileResult(key, analysis_result,
                                            wheelbarrow_pb2.DELETE, diff_pair)
-      result.states[0].sha256 = diff_result.after[key][0]
+      result.states[0].sha256 = diff_result.before[key][0]
       if self._record_contents:
         result.states[0].contents = diff_result.before[key][1]
 
