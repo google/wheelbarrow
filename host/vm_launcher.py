@@ -68,6 +68,7 @@ def MakeVmCommand(image, memory, snapshot):
 
   cmd = ['qemu-system-x86_64',
          '-hda', image,
+         '--enable-kvm',
          '-m', str(memory)]
   # Concatenate any additional options.
   if snapshot:

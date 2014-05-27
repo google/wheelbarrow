@@ -17,7 +17,8 @@ sudo service nfs-kernel-server restart
 sudo exportfs -a
 
 Extract the codebase to the nfs share (/home/foo/myshare in this case).
-set the environment variable WHEELBARROW_HOME to point to this directory
+Create a directory under the nfs share called wheelbarrow.
+Set the environment variable WHEELBARROW_HOME to point to this directory
 (/home/foo/myshare/wheelbarrow).
 
 Set up python modules gflags and protobufs:
@@ -27,15 +28,16 @@ ______________________________________________________________________________
 
 Guest setup
 Download the Ubuntu installation image from http://www.ubuntu.com.
+(Server is recommended)
 
 Install QEMU and create a QCOW2 disk image:
 sudo apt-get install qemu
 qemu-img create -f qcow2 ubuntu.qcow2 6G
 
 Start QEMU using the Ubuntu installation image and install Ubuntu:
-qemu-system-x86_64 -hda ubuntu.qcow2 -m 4096 -cdrom <path to installation image>
+qemu-system-x86_64 -hda ubuntu.qcow2 -m 4096 -cdrom <path to installation image> --enable-kms
 
-The installation process will ask to restart. After restarting, the guest 
+The installation process will ask to restart. After restarting, the guest
 setup process can start.
 
 Boot to command line by default:
@@ -71,22 +73,20 @@ sudo poweroff
 
 ______________________________________________________________________________
 Starting Analyses
-On the host, create a batch package descriptor. It is a text file describing 
-a set of package that should be analyzed. 
+On the host, create a batch package descriptor. It is a text file describing
+a set of package that should be analyzed.
 For example, it can contain the following:
-name_regex: “^ftp.*”
-architecture: “amd64”
-max_count: “500”
+name_regex: "^ftp.*"
+architecture: "amd64"
+max_count: 500
 
-This corresponds to at most 500 packages whose name starts with “ftp” and
+This corresponds to at most 500 packages whose name starts with "ftp" and
  whose architecture is amd64.
 
 Then you can launch the analyses:
 cd $WHEELBARROW_HOME
-host/analysis_launcher.py --batchfile /home/foo/bpdesc.txt --image /home/foo/ubuntu.qcow2 -m 4096 -g /mnt/broker -h /home/foo/share/ -t 1200 --textout --snapshot
+host/analysis_launcher.py --batchfile /home/foo/bpdesc.txt --image /home/foo/ubuntu.qcow2 -m 4096 -g /mnt/broker -h /home/foo/share -t 1200 --textout --snapshot
 
 
 
 ______________________________________________________________________________
-
-

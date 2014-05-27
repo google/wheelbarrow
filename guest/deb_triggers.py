@@ -61,7 +61,7 @@ class DebExtract(triggers.Extract):
     logging.info('Extracting...')
     try:
       package_file = open(self._package_path)
-      apt_inst.debExtractArchive(package_file, self._package_extract_dir)
+      apt_inst.DebFile(package_file).data.extractall(self._package_extract_dir)
       package_file.close()
     except (IOError, SystemError) as e:
       error = ('Could not open and extract application package %s: %s'

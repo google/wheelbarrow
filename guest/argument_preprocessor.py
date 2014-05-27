@@ -25,6 +25,7 @@ in charge of converting analysis arguments as described by analysis descriptors
 to arguments that can be used by analyzers.
 """
 
+import codecs
 import glob
 import os
 import re
@@ -56,7 +57,7 @@ def PreprocessArgument(argument, extract_dir):
     expanded_path_arguments = glob.glob(complete_path_argument)
     for expanded_path_argument in expanded_path_arguments:
       if argument.recursive_file_walk:
-        for (dir_path, _, file_names) in os.walk(expanded_path_argument):
+        for (dir_path, _, file_names) in os.walk(codecs.encode(expanded_path_argument, 'utf-8')):
           for file_name in file_names:
             file_path = os.path.join(dir_path, file_name)
             if os.path.isfile(file_path):
