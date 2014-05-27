@@ -25,6 +25,7 @@ in charge of converting analysis arguments as described by analysis descriptors
 to arguments that can be used by analyzers.
 """
 
+import codecs
 import glob
 import os
 import re
